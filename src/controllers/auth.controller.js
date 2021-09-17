@@ -8,8 +8,6 @@ module.exports = {
       const { email, password } = req.body;
 
       const existUser = await User.findOne({ email });
-
-      console.log(existUser);
       if (existUser) {
         throw Conflict("Email already exists.");
       }

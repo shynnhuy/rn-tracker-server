@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const helmet = require("helmet");
+const morgan = require("morgan");
 const { NotFound } = require("http-errors");
 
 const app = express();
@@ -10,6 +11,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
+app.use(morgan("dev"));
 
 require("./mongo");
 
